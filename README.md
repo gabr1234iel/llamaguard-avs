@@ -1,66 +1,24 @@
-## Foundry
+## Llama Guard AVS
 
-**Foundry is a blazing fast, portable and modular toolkit for Ethereum application development written in Rust.**
 
-Foundry consists of:
 
--   **Forge**: Ethereum testing framework (like Truffle, Hardhat and DappTools).
--   **Cast**: Swiss army knife for interacting with EVM smart contracts, sending transactions and getting chain data.
--   **Anvil**: Local Ethereum node, akin to Ganache, Hardhat Network.
--   **Chisel**: Fast, utilitarian, and verbose solidity REPL.
+### prerequisites:
+- Foundry
+- ollama
 
-## Documentation
 
-https://book.getfoundry.sh/
 
-## Usage
+### run instructions: 
 
-### Build
+1. install llamaguard and run locally
+`ollama run llama-guard3:1b`
 
-```shell
-$ forge build
-```
+2. run local anvil chain
+`anvil --chain-id 31337 --fork-url https://eth-mainnet.g.alchemy.com/v2/<YOUR ALCHEMY API KEY>`
 
-### Test
+3. replace .env-example with generated privatekeys in anvil in a `.env` file
 
-```shell
-$ forge test
-```
+4. open two more terminals and run `bun run createTask.ts` and `bun run respondToTask.ts`
 
-### Format
+5. you can modify the createTask.ts arrays to see different responses.
 
-```shell
-$ forge fmt
-```
-
-### Gas Snapshots
-
-```shell
-$ forge snapshot
-```
-
-### Anvil
-
-```shell
-$ anvil
-```
-
-### Deploy
-
-```shell
-$ forge script script/Counter.s.sol:CounterScript --rpc-url <your_rpc_url> --private-key <your_private_key>
-```
-
-### Cast
-
-```shell
-$ cast <subcommand>
-```
-
-### Help
-
-```shell
-$ forge --help
-$ anvil --help
-$ cast --help
-```
